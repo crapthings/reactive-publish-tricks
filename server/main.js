@@ -16,6 +16,8 @@ Meteor.publish('groups.and.users', function () {
 
   const links = Links.find()
 
+  console.log(links.fetch())
+
   this.added('helpers', '1', { cache: getCachedData(), isFirst: true })
 
   const linksHandler = links.observeChanges({

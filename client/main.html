@@ -1,3 +1,21 @@
 <body>
   <button onclick='javascript: Meteor.call("add")'>创建新关系组和用户</button>
+  {{> users}}
 </body>
+
+<template name='users'>
+  <h3>hi</h3>
+    {{#each data}}
+      <ul>
+        {{#each get this 'cache.cachedUsers'}}
+          <li>{{name}} - {{cache _id 'cachedGroups' 'name'}}</li>
+        {{/each}}
+      </ul>
+
+      <ul>
+        {{#each get this 'cache.cachedGroups'}}
+          <li>{{name}}</li>
+        {{/each}}
+      </ul>
+    {{/each}}
+</template>
